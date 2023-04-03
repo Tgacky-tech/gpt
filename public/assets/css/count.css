@@ -1,0 +1,274 @@
+/**{*/
+/*    box-sizing: border-box;*/
+/*}*/
+.main{
+    width: 320px;
+    margin: auto;
+    padding: 10px;
+}
+
+/* 数字 */
+h1{
+    margin: auto;
+    
+    /* 文字の太さ */
+    font-weight: 100;
+    
+    /* 文字を中央寄せ */
+    text-align: center;
+    
+    /* 横幅 */
+    width: 100px;
+    
+    /* 縦幅 */
+    height: 100px;
+    line-height: 100px;
+    
+    /* 枠の太さ 線の種類 色 */
+    border: 1px solid #009688;
+    
+    /* 枠を丸くする */
+    border-radius: 50%;
+}
+
+/* ボタン共通 */
+input{
+    border: 0;
+    background: none;
+    display: block;
+    margin: auto;
+    
+    width: 80%;
+    text-align: center;
+    
+    /* 上との余白 */
+    margin-top: 20px;
+    
+    /* 文字の大きさ */
+    font-size: 20px;
+}
+
+/* プラスボタン */
+input[value="+"]{
+    
+    /* 文字の色 */
+    color: #f9f9f9;
+    
+    /* 背景 */
+    background: #448AFF;
+}
+
+/* マイナスボタン */
+input[value="-"]{
+    color: #f9f9f9;
+    background: #F44336;
+}
+
+
+/*== ボタン共通設定 */
+.btn{
+    /*アニメーションの起点とするためrelativeを指定*/
+    position: relative;
+  overflow: hidden;
+    /*ボタンの形状*/
+  text-decoration: none;
+  display: inline-block;
+    border: 1px solid #555;/* ボーダーの色と太さ */
+    padding: 10px 30px;
+    text-align: center;
+    outline: none;
+    /*アニメーションの指定*/   
+    transition: ease .2s;
+}
+
+/*ボタン内spanの形状*/
+.btn span {
+  position: relative;
+  z-index: 3;/*z-indexの数値をあげて文字を背景よりも手前に表示*/
+  color:#333;
+}
+
+.btn:hover span{
+  color:#fff;
+}
+
+/*== 背景が流れる（左から右） */
+.bgleft:before {
+  content: '';
+    /*絶対配置で位置を指定*/
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+    /*色や形状*/
+  background:#333;/*背景色*/
+  width: 100%;
+  height: 100%;
+    /*アニメーション*/
+  transition: transform .6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+  transform: scale(0, 1);
+  transform-origin: right top;
+}
+
+/*hoverした際の形状*/
+.bgleft:hover:before{
+  transform-origin:left top;
+  transform:scale(1, 1);
+}
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+
+
+
+p{
+    margin: 0 0 10px 0;
+}
+nav {
+  width: 100%;
+  height: 70px;
+  background-color: dimgray;
+  box-sizing: border-box;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+ul {
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+  position:relative;
+  top: 16px;
+  
+}
+li {
+  list-style: none;
+}
+a {
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: rgb(214, 237, 248);
+}
+
+body{
+  padding:0;
+}
+.imgs{
+  height:20px;
+  width:20px;
+}
+.gpt{
+  display:flex;
+}
+.radio-003 {
+    border: none;
+}
+
+.radio-003 label {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    position: relative;
+    /*max-width: 200px;*/
+    margin-bottom: 1.4em;
+    padding: .5em .7em;
+    border: 1px solid #323c43;
+    border-radius: 3px;
+    background-color: #323c4326;
+    cursor: pointer;
+}
+
+.radio-003 label:has(:checked) {
+    background-color: #323c43;
+    color: #fff;
+}
+
+.radio-003 label::before,
+.radio-003 label:has(:checked)::after {
+    border-radius: 50%;
+    content: '';
+}
+
+.radio-003 label::before {
+    width: 14px;
+    height: 14px;
+    background-color: #fff;
+}
+
+.radio-003 label:has(:checked)::after {
+    position: absolute;
+    top: 50%;
+    left: calc(7px + .7em);
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
+    background-color: #323c43;
+}
+
+.radio-003 input {
+    display: none;
+}
+
+.orbutton {
+  display       : inline-block;
+  border-radius : 6%;          /* 角丸       */
+  font-size     : 22pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #999999;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #999999;    /* 枠の指定 */
+}
+.orbutton:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #999999;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+.keybox{
+  border-style:solid;
+}
+
+.circle{
+  font-size:24px;
+}
+.link{
+  
+  padding: 10px;
+  
+  border-radius: 5px;
+}
+.link:hover{
+  background-color: #D3D0CE;
+  color:#000000;
+}
+.button2 {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 22pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 12px 12px;   /* 余白       */
+  background    : #999999;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #999999;    /* 枠の指定 */
+}
+.button2:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #999999;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}

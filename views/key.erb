@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/count.css">
+  <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+  <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/7-1-9/css/7-1-9.css">
+</head>
+<body>
+  <div class="top">
+    <!--<div class="box"><a href="#" class="btn bgleft"><span>7-1-1 背景が流れる（左から右）</span></a></div>-->
+    <nav>
+  <ul>
+    <li><div class="link"><a href="/">キーワード</a></div></li>
+    <li><div class="link"><a href="/number">文字数</a></div></li>
+    <li><div class="link"><a href="/random">おまかせ（おすすめ）</a></div></li>
+    <li><div class="link"><a href="#">履歴</a></div></li>
+  </ul>
+</nav>
+  </div>
+  <div class="main">
+  <h1>問題<br><br></h1>
+  <h4><br><%= @question %></h3>
+   <form action="/talk/result" method="post">
+    <input type="text" name="raradio" value="<%= @answer[2..-1] %>" hidden>
+    <input type="text" name="kaisetu" value="<%= @kaisetu %>" hidden>
+      <fieldset class="radio-003">
+        <label>
+            <input type="radio" name="radio003" value="<%= @choice1[2..-1] %>" checked/>
+            <%= @choice1 %>
+        </label>
+        <label>
+            <input type="radio" value="<%= @choice2[2..-1] %>" name="radio003"/>
+            <%= @choice2 %>
+        </label>
+        <label>
+            <input type="radio" value="<%= @choice3[2..-1] %>" name="radio003"/>
+            <%= @choice3 %>
+        </label>
+        <label>
+            <input type="radio" value="<%= @choice4[2..-1] %>" name="radio003"/>
+            <%= @choice4 %>
+        </label>
+    </fieldset>
+    <input type="submit" value="答え合わせ" class="orbutton">
+</form>
+  </div>
+</body>
+</html>
