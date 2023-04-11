@@ -3,7 +3,7 @@ Bundler.require
 require 'sinatra/reloader' if development?
 require './models/count.rb'
 require "openai"
-$client = OpenAI::Client.new(access_token: "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")
+$client = OpenAI::Client.new(access_token: "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")
 
 
 
